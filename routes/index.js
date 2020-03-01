@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var authMiddleware = require('../auth/middleware');
+const Trip = require('../db/trip');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,7 +17,13 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.get('/dashboard', authMiddleware.ensureLoggedIn, function(req, res) {
-  res.render('dashboard', { title: 'Express' });
+  Trip.getTrips().then(trips => {
+    console.log(trips);
+    trippy = JSON.stringify(trips);
+    trippy = JSON.parse(trippy)[0].tripnumber;
+    console.log(trippy);
+    res.render('dashboard', { title: 'Express', tripnumber: trippy });
+  });
 });
 
 router.get('/logout', function(req, res, next) {

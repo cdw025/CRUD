@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../db/user');
-const Sticker = require('../db/sticker');
+
 
 router.get('/:id', (req, res) => {
   if (!isNaN(req.params.id)) {
