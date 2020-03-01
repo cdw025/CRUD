@@ -80,11 +80,11 @@ router.post('/login', (req, res, next) => {
                         const isSecure = req.app.get('env') === 'development';
                         res.cookie('user_id', user.id, {
                             httpOnly: true,
-                            secure: isSecure,
-                            signed: true
+                            signed: true,
+                            sameSite: 'strict'
                         });
                         res.json({
-                            result,
+                            id: user.id,
                             message: 'Logged In!'
                         });
                     } else {
