@@ -1,0 +1,50 @@
+<div id="accordion">
+    <div class="card">
+    <table class="table">
+      <thead>
+        <tr>
+            <th scope="col" class="text-center">Trip Number</th>
+            <th scope="col" class="text-center">Barge 1</th>
+            <th scope="col" class="text-center">Barge 2</th>
+            <th scope="col" class="text-center">Barge 3</th>
+            <th scope="col" class="text-center">Details</th>
+            <th scope="col" class="text-center">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i = 0; i < trips.length; i++) { %>
+            <tr>
+                <td class="text-center" ><%= trips[i].tripnumber %></td>
+                <td class="text-center"><%= trips[i].barge1 %></td>
+                <td class="text-center"><%= trips[i].barge2 %></td>
+                <td class="text-center"><%= trips[i].barge3 %></td>
+                <td class="text-center"><button class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#<%= trips[i].id %>" aria-expanded="true" aria-controls="<%= trips[i].id %>">
+                    Details
+                  </button></td>
+                <td class="text-center"><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
+            </tr>
+            <% } %>
+          </tbody>
+    </table>
+    </div>
+</div>
+
+
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Collapsible Group Item #1
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+</div>
+

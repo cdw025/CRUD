@@ -18,11 +18,9 @@ router.get('/signup', function(req, res, next) {
 
 router.get('/dashboard', authMiddleware.ensureLoggedIn, function(req, res) {
   Trip.getTrips().then(trips => {
+    trips = JSON.parse(JSON.stringify(trips));
     console.log(trips);
-    trippy = JSON.stringify(trips);
-    trippy = JSON.parse(trippy)[0].tripnumber;
-    console.log(trippy);
-    res.render('dashboard', { title: 'Express', tripnumber: trippy });
+    res.render('dashboard', { title: 'Express', trips: trips });
   });
 });
 
