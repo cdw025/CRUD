@@ -1,50 +1,111 @@
-<div id="accordion">
-    <div class="card">
-    <table class="table">
-      <thead>
-        <tr>
-            <th scope="col" class="text-center">Trip Number</th>
-            <th scope="col" class="text-center">Barge 1</th>
-            <th scope="col" class="text-center">Barge 2</th>
-            <th scope="col" class="text-center">Barge 3</th>
-            <th scope="col" class="text-center">Details</th>
-            <th scope="col" class="text-center">Edit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for (let i = 0; i < trips.length; i++) { %>
-            <tr>
-                <td class="text-center" ><%= trips[i].tripnumber %></td>
-                <td class="text-center"><%= trips[i].barge1 %></td>
-                <td class="text-center"><%= trips[i].barge2 %></td>
-                <td class="text-center"><%= trips[i].barge3 %></td>
-                <td class="text-center"><button class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#<%= trips[i].id %>" aria-expanded="true" aria-controls="<%= trips[i].id %>">
-                    Details
-                  </button></td>
-                <td class="text-center"><button type="button" class="btn btn-primary btn-sm">Edit</button></td>
-            </tr>
-            <% } %>
-          </tbody>
-    </table>
-    </div>
+<!-- <style>
+  #panel{
+      cursor: pointer;
+      
+  }
+
+  #myGroup{
+    padding-left: 0;
+      padding-right: 0;
+  }
+</style>
+
+<div class="row-header">
+<div class="row font-weight-bold">
+  <div class="col-sm text-center">Trip</div>
+  <div class="col-sm text-center">Customer</div>
+  <div class="col-sm text-center">Barge 1</div>
+  <div class="col-sm text-center">Tug 1</div>
+  <div class="col-sm text-center"></div>
 </div>
-
-
-<div id="accordion">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Collapsible Group Item #1
-          </button>
-        </h5>
-      </div>
-  
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+</div>
+ <div id="myGroup" class="container">
+   <% for (let i = 0; i < trips.length; i++) { %>
+ <div class="panel border" id="panel">
+    <div class="row mint" role="button" data-toggle="collapse" data-parent="#myGroup" href="#<%= trips[i].tripnumber %>" aria-expanded="false" aria-controls="<%= trips[i].tripnumber %>">
+      <div class="col-sm text-center"><%= trips[i].tripnumber %></div>
+      <div class="col-sm text-center"><%= trips[i].customer %></div>
+      <div class="col-sm text-center"><%= trips[i].barge1 %></div>
+      <div class="col-sm text-center"><%= trips[i].tug1 %></div>
+      <div class="col-sm text-center">+</div>
+    </div>
+    <div id="<%= trips[i].tripnumber %>" class="row collapse in">
+      <div class="card">
         <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
         </div>
       </div>
     </div>
-</div>
+  </div>
+  <% } %>
+ </div> -->
 
+<style>
+  tr.hide-table-padding td {
+  padding: 0;
+}
+
+.expand-button {
+	position: relative;
+}
+
+.accordion-toggle .expand-button:after
+{
+  position: absolute;
+  left:.75rem;
+  top: 50%;
+  transform: translate(0, -50%);
+  content: '-';
+}
+.accordion-toggle.collapsed .expand-button:after
+{
+  content: '+';
+}
+
+#tdcard {
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+</style>
+
+ <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trip</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Status</th>
+        <th scope="col">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < trips.length; i++) { %>
+      <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#<%= trips[i].tripnumber %>">
+        <td><%= trips[i].tripnumber %></td>
+        <td><%= trips[i].customer %></td>
+        <td><%= trips[i].status %></td>
+        <td class="expand-button"></td>
+
+</tr>
+<tr class="hide-table-padding">
+<td colspan="4">
+<div id="<%= trips[i].tripnumber %>" class="collapse in col-sm">
+  <div class="card" id="tdcard">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div></td>
+</tr>
+<% } %>
+    </tbody>
+  </table>
+</div>

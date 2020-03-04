@@ -1,5 +1,9 @@
 console.log(API_URL);
 
+function login(user) {
+    return $.post(`${AUTH_URL}/login`, user);
+}
+
 $(() => {
     $('form').submit((event) => {
         event.preventDefault();
@@ -16,6 +20,3 @@ $(() => {
     });
 });
 
-function login(user) {
-    return $.post(`${AUTH_URL}/login`, user);
-}
