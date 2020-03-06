@@ -1,49 +1,3 @@
-<!-- <style>
-  #panel{
-      cursor: pointer;
-      
-  }
-
-  #myGroup{
-    padding-left: 0;
-      padding-right: 0;
-  }
-</style>
-
-<div class="row-header">
-<div class="row font-weight-bold">
-  <div class="col-sm text-center">Trip</div>
-  <div class="col-sm text-center">Customer</div>
-  <div class="col-sm text-center">Barge 1</div>
-  <div class="col-sm text-center">Tug 1</div>
-  <div class="col-sm text-center"></div>
-</div>
-</div>
- <div id="myGroup" class="container">
-   <% for (let i = 0; i < trips.length; i++) { %>
- <div class="panel border" id="panel">
-    <div class="row mint" role="button" data-toggle="collapse" data-parent="#myGroup" href="#<%= trips[i].tripnumber %>" aria-expanded="false" aria-controls="<%= trips[i].tripnumber %>">
-      <div class="col-sm text-center"><%= trips[i].tripnumber %></div>
-      <div class="col-sm text-center"><%= trips[i].customer %></div>
-      <div class="col-sm text-center"><%= trips[i].barge1 %></div>
-      <div class="col-sm text-center"><%= trips[i].tug1 %></div>
-      <div class="col-sm text-center">+</div>
-    </div>
-    <div id="<%= trips[i].tripnumber %>" class="row collapse in">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% } %>
- </div> -->
-
 <style>
   tr.hide-table-padding td {
   padding: 0;
@@ -68,7 +22,15 @@
 
 #tdcard {
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+}
+
+#cardtitle {
+  margin-bottom: 0px;
+}
+
+.table-responsive {
+  margin-top: 10px;
 }
 
 </style>
@@ -96,13 +58,39 @@
 <td colspan="4">
 <div id="<%= trips[i].tripnumber %>" class="collapse in col-sm">
   <div class="card" id="tdcard">
-    <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
+      <div class="row">
+      <h5 class="card-title col align-self-center" id="cardtitle"><%= trips[i].customer %> - <%= trips[i].tripnumber %></h5>
+      <button type="button" class="btn col-1" id="editjobbutton" data-toggle="modal" data-target="#editjobscreen">Edit</button>
+    </div>
+    <div class="modal fade" id="editjobscreen" tabindex="-1" role="dialog" aria-labelledby="editjobscreenlabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editjobscreenlabel">Edit Job <%= trips[i].tripnumber %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">Hello</div>
+              <div class="col-md-6">Hello</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    </div>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
   </div>
+</div>
 </div></td>
 </tr>
 <% } %>
