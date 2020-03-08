@@ -27,6 +27,16 @@ function getHostURL() {
     $errorMessage.show();
   }
 
+  function getTripFromForm() {
+    const tripnumber = $('#tripNumberInput').val();
+
+        const trip = {
+            tripnumber
+        };
+
+        return trip;
+  }
+
   // function logout() {
   //   localStorage.removeItem('user_id');
   //   $.get()

@@ -61,13 +61,13 @@
     <div class="card-body">
       <div class="row">
       <h5 class="card-title col align-self-center" id="cardtitle"><%= trips[i].customer %> - <%= trips[i].tripnumber %></h5>
-      <button type="button" class="btn col-1" id="editjobbutton" data-toggle="modal" data-target="#editjobscreen">Edit</button>
+      <button type="button" class="btn col-1" id="edittripbutton" data-toggle="modal" data-target="#edittripscreen">Edit</button>
     </div>
-    <div class="modal fade" id="editjobscreen" tabindex="-1" role="dialog" aria-labelledby="editjobscreenlabel" aria-hidden="true">
+    <div class="modal fade" id="edittripscreen" tabindex="-1" role="dialog" aria-labelledby="edittripscreenlabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="editjobscreenlabel">Edit Job <%= trips[i].tripnumber %></h5>
+            <h5 class="modal-title" id="edittripscreenlabel">Edit Trip <%= trips[i].tripnumber %></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

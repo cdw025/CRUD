@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 const ejsLint = require('ejs-lint');
 var index = require('./routes/index');
 var user = require('./routes/user');
-var auth = require('./auth/index')
+var auth = require('./auth/index');
 
 
 var app = express();

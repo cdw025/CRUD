@@ -8,7 +8,48 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form>
+            <h5>Trip Information</h5>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="tripNumberInput">Trip Number</label>
+                        <input type="text" class="form-control" id="tripNumberInput" placeholder="Trip #">
+                    </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                      <label for="tripNameInput">Trip Name</label>
+                      <input type="text" class="form-control" id="tripNameInput" placeholder="Trip Name">
+                  </div>
+              </div>
+                  <div class="col-4">
+                      <div class="form-group">
+                          <label for="airDraftInput">Air Draft (ft)</label>
+                          <input type="number" class="form-control" id="airDraftInput" placeholder="Air Draft">
+                      </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="mobLocInput">Mobilization Location</label>
+                    <input type="text" class="form-control" id="mobLocInput" placeholder="Mobilization Location">
+                </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                  <label for="loadLocInput">Load Location</label>
+                  <input type="text" class="form-control" id="loadLocInput" placeholder="Load Location">
+              </div>
+          </div>
+              <div class="col-4">
+                  <div class="form-group">
+                      <label for="unloadLocInput">Unload Location</label>
+                      <input type="text" class="form-control" id="unloadLocInput" placeholder="Unload Location">
+                  </div>
+          </div>
+      </div>
               <h5>Customer Information</h5>
               <div class="row">
                   <div class="col-4">
@@ -49,29 +90,43 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
-                            <label for="companyInput">Company Name</label>
-                            <input type="text" class="form-control" id="companyInput" placeholder="Company Name">
+                            <label for="barge1Input">Barge Name (1)</label>
+                            <input type="text" class="form-control" id="barge1Input" placeholder="Barge Name">
                         </div>
                     </div>
                     <div class="col-4">
                       <div class="form-group">
-                          <label for="customerFirstNameInput">Customer First Name</label>
-                          <input type="text" class="form-control" id="customerFirstNameInput" placeholder="First Name">
+                          <label for="barge2Input">Barge Name (2)</label>
+                          <input type="text" class="form-control" id="barge2Input" placeholder="Barge Name">
                       </div>
                   </div>
                       <div class="col-4">
                           <div class="form-group">
-                              <label for="customerLastNameInput">Customer Last Name</label>
-                              <input type="text" class="form-control" id="customerLastNameInput" placeholder="Last Name">
+                              <label for="tug1Input">Tug Name (1)</label>
+                              <input type="text" class="form-control" id="tug1Input" placeholder="Tug Name">
                           </div>
                   </div>
+                </div>
+                  <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="tug2Input">Tug Name (2)</label>
+                            <input type="text" class="form-control" id="tug2Input" placeholder="Tug Name">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                          <label for="tug3Input">Tug Name (3)</label>
+                          <input type="text" class="form-control" id="tug3Input" placeholder="Tug Name">
+                      </div>
+                  </div>
               </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Create New Trip</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>

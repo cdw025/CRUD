@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 
 const User = require('../db/user');
+const Trip = require('../db/trip');
 
 // Route paths are prepended with /auth
 
@@ -22,6 +23,7 @@ function validUser(user) {
 
     return validEmail && validPassword;
 }
+
 
 router.post('/signup', (req, res, next) => {
     if(validUser(req.body)) {
@@ -101,6 +103,41 @@ router.post('/login', (req, res, next) => {
         next(new Error('Invalid Login'));
     }
 });
+
+
+function validTrip(trip) {
+    const validTripNumber = typeof trip.tripnumber == 'string' &&
+                        trip.tripnumber.trim() !='';
+
+    return validTripNumber;
+}
+
+router.post('/newtrip', (req, res, next) => {
+    if(validTrip(req.body)) {
+        Trip
+        .getOneByTripNumber(req.body.tripnumber)
+        .then(trip => {
+            console.log('trip', trip);
+            //If trip not found
+            if(!trip) {
+                //this is a unique trip
+                    const trip = {
+                        tripnumber: req.body.tripnumber
+                    };
+
+                    Trip
+                    .create(trip)
+                    .then(id => {
+                // redirect
+                res.json({
+                    id,
+                    message: 'trip created'
+                });
+                    });
+                }
+            });
+        }
+    });
 
 
 module.exports = router;
