@@ -12,5 +12,13 @@ module.exports = {
     return knex('trips').insert(trip,'id').then(ids => {
       return ids[0];
     });
+  },
+  update: function(trip) {
+    return knex('trips').where('id', id).update({
+      'tripnumber': tripnumber,
+      'tripname': tripname
+    }).then(ids => {
+      return ids[0];
+    });
   }
 }

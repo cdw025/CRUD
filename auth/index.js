@@ -122,7 +122,22 @@ router.post('/newtrip', (req, res, next) => {
             if(!trip) {
                 //this is a unique trip
                     const trip = {
-                        tripnumber: req.body.tripnumber
+                        tripnumber: req.body.tripnumber,
+                        barge1: req.body.barge1,
+                        barge2: req.body.barge2,
+                        tug1: req.body.tug1,
+                        tug2: req.body.tug2,
+                        tug3: req.body.tug3,
+                        airdraft: req.body.airdraft,
+                        tripname: req.body.tripname,
+                        moblocation: req.body.moblocation,
+                        loadlocation: req.body.loadlocation,
+                        unloadlocation: req.body.unloadlocation,
+                        customer: req.body.customer,
+                        customerfirstname: req.body.customerfirstname,
+                        customerlastname: req.body.customerlastname,
+                        customerphone: req.body.customerphone,
+                        customeremail: req.body.customeremail
                     };
 
                     Trip
@@ -134,10 +149,82 @@ router.post('/newtrip', (req, res, next) => {
                     message: 'trip created'
                 });
                     });
+                } else {
+                    // existing trip
+
+                    console.log('trip already exists');
+                //     const trip = {
+                //         tripnumber: req.body.tripnumber,
+                //         barge1: req.body.barge1,
+                //         barge2: req.body.barge2,
+                //         tug1: req.body.tug1,
+                //         tug2: req.body.tug2,
+                //         tug3: req.body.tug3,
+                //         airdraft: req.body.airdraft,
+                //         tripname: req.body.tripname,
+                //         moblocation: req.body.moblocation,
+                //         loadlocation: req.body.loadlocation,
+                //         unloadlocation: req.body.unloadlocation,
+                //         customer: req.body.customer,
+                //         customerfirstname: req.body.customerfirstname,
+                //         customerlastname: req.body.customerlastname,
+                //         customerphone: req.body.customerphone,
+                //         customeremail: req.body.customeremail
+                //     };
+                //     Trip
+                //     .edit(trip)
+                //     .then(id => {
+                // // redirect
+                // res.json({
+                //     id,
+                //     message: 'trip edited'
+                // });
+                //     });
+
                 }
             });
         }
     });
+
+function validateTripInsertUpdate(req, res, callback) {
+    if(validTrip(req.body)) {
+        const trip = {
+                    tripnumber: req.body.tripnumber,
+                    barge1: req.body.barge1,
+                    barge2: req.body.barge2,
+                    tug1: req.body.tug1,
+                    tug2: req.body.tug2,
+                    tug3: req.body.tug3,
+                    airdraft: req.body.airdraft,
+                    tripname: req.body.tripname,
+                    moblocation: req.body.moblocation,
+                    loadlocation: req.body.loadlocation,
+                    unloadlocation: req.body.unloadlocation,
+                    customer: req.body.customer,
+                    customerfirstname: req.body.customerfirstname,
+                    customerlastname: req.body.customerlastname,
+                    customerphone: req.body.customerphone,
+                    customeremail: req.body.customeremail
+                };
+
+        callback(trip);
+    } else {
+        res.status(500);
+        res.send('invalid trip')
+    }
+}
+
+router.put('/edittrip/:id', (req, res) => {
+    validateTripInsertUpdate(req, res, (trip) => {
+
+        knex('trips')
+        .where('id', req.params.id)
+        .update(trip, 'id')
+        .then(() => {
+            res.redirect('dashboard');
+        });
+    });
+});
 
 
 module.exports = router;

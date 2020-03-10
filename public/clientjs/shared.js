@@ -29,9 +29,42 @@ function getHostURL() {
 
   function getTripFromForm() {
     const tripnumber = $('#tripNumberInput').val();
+    const tripname = $('#tripNameInput').val();
+    const airdraft = $('#airDraftInput').val();
+    const moblocation = $('#mobLocInput').val();
+    const loadlocation = $('#loadLocInput').val();
+    const unloadlocation = $('#unloadLocInput').val();
+    const customer = $('#companyInput').val();
+    const customerfirstname = $('#customerFirstNameInput').val();
+    const customerlastname = $('#customerLastNameInput').val();
+    const customerphone = $('#customerPhoneInput').val();
+    const customeremail = $('#customerEmailInput').val();
+    const barge1 = $('#barge1Input').val();
+    const barge2 = $('#barge2Input').val();
+    const tug1 = $('#tug1Input').val();
+    const tug2 = $('#tug2Input').val();
+    const tug3 = $('#tug3Input').val();
+    
+
+
 
         const trip = {
-            tripnumber
+            tripnumber,
+            tripname,
+            airdraft,
+            moblocation,
+            loadlocation,
+            unloadlocation,
+            customer,
+            customerfirstname,
+            customerlastname,
+            customerphone,
+            customeremail,
+            barge1,
+            barge2,
+            tug1,
+            tug2,
+            tug3
         };
 
         return trip;
