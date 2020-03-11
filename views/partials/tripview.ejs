@@ -56,12 +56,13 @@
         
 <tr class="hide-table-padding">
 <td colspan="4">
-<div id="<%= trips[i].tripnumber %>" class="collapse in col-sm head-div">
+<div class="collapse in col-sm head-div" id="<%= trips[i].tripnumber %>">
   <div class="card" id="tdcard">
     <div class="card-body">
       <div class="row">
       <h5 class="card-title col align-self-center" id="cardtitle"><%= trips[i].customer %> - <%= trips[i].tripnumber %></h5>
       <button type="button" class="btn col-1" id="edittripbutton" data-toggle="modal" data-target="#e<%= trips[i].tripnumber %>">Edit</button>
+      <button type="button" class="btn col-1" data-toggle="modal" data-target="#d<%= trips[i].tripnumber %>">Delete</button>
     </div>
     <div class="modal fade" id="e<%= trips[i].tripnumber %>" tabindex="-1" role="dialog" aria-labelledby="editTripModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -73,7 +74,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form id="edittripform">
+            <form id="eform-<%= trips[i].id %>" class="edittripform">
               <h5>Trip Information</h5>
               <div class="row">
                   <div class="col-4">
@@ -197,6 +198,10 @@
         </div>
       </div>
     </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div class="modal-body">
     <div class="row">
     </div>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

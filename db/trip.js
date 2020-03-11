@@ -18,5 +18,8 @@ module.exports = {
   },
   update: function(id, trip) {
     return knex('trips').where('id', id).update(trip, '*');
+  },
+  delete: function(id) {
+    return knex('trips').where('id', id).delete();
   }
 }

@@ -115,9 +115,13 @@ function getHostURL() {
         return trip;
   }
 
-  // function logout() {
-  //   localStorage.removeItem('user_id');
-  //   $.get()
+  function getDelTripForm() {
+    const id = $('#did').val();
+    const tripnumber = $('#dtripNumberInput').val();
+        const trip = {
+            id,
+            tripnumber
+        };
 
-  // }
-  
+        return trip;
+  }

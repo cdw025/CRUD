@@ -166,24 +166,34 @@ router.put('/dashboard/:id', (req, res, next) => {
         } else {
             next(new Error('invalid trip neal'));
         }
-    });
+});
 
-        router.get('/dashboard/:id', (req, res) => {
-            if (!isNaN(req.params.id)) {
-                Trip.getOneByTripId(req.params.id).then(trip => {
-                if (trip) {
-                    res.json(trip);
-                } else {
-                    res.status(404);
-                    res.send('trip not found');
-                }
-                });
-            } else {
-                res.status(500);
-                res.send('invalid ID');
-            }
-            });
+router.get('/dashboard/:id', (req, res) => {
+    if (!isNaN(req.params.id)) {
+        Trip.getOneByTripId(req.params.id).then(trip => {
+        if (trip) {
+            res.json(trip);
+        } else {
+            res.status(404);
+            res.send('trip not found');
+        }
+        });
+    } else {
+        res.status(500);
+        res.send('invalid ID');
+    }
+    });
     
 
+
+router.delete('/dashboard/:id', (req, res, next) => {
+    if(validTrip(req.body)) {
+        Trip
+        .delete(req.params.id);
+        } else {
+            next(new Error('invalid trip neal'));
+        }
+    });
+    
 
 module.exports = router;

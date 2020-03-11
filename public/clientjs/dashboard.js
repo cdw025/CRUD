@@ -20,7 +20,7 @@ function createTrip(trip) {
 }
 
 $(() => {
-    $('#edittripform').submit((event) => {
+    $('.edittripform').submit(function(event) {
         event.preventDefault();
         const trip = getEditTripFromForm();
         console.log(trip);
@@ -34,9 +34,14 @@ $(() => {
         });
         });
     });
-
-
-
     function editTrip(trip) {
         return $.post(`${AUTH_URL}/dashboard/${trip.id}?_method=PUT`, trip);
     }
+
+    $(() => {
+        $('#deltripform123').submit(function(e) {
+            e.preventDefault();
+            const trip = getDelTripForm();
+            console.log(trip);
+        });
+    });
