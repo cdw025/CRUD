@@ -27,7 +27,7 @@ function getHostURL() {
     $errorMessage.show();
   }
 
-  function getTripFromForm() {
+  function getNewTripFromForm() {
     const tripnumber = $('#tripNumberInput').val();
     const tripname = $('#tripNameInput').val();
     const airdraft = $('#airDraftInput').val();
@@ -49,6 +49,51 @@ function getHostURL() {
 
 
         const trip = {
+            tripnumber,
+            tripname,
+            airdraft,
+            moblocation,
+            loadlocation,
+            unloadlocation,
+            customer,
+            customerfirstname,
+            customerlastname,
+            customerphone,
+            customeremail,
+            barge1,
+            barge2,
+            tug1,
+            tug2,
+            tug3
+        };
+
+        return trip;
+  }
+
+  function getEditTripFromForm() {
+    const id = $('#eid').val();
+    const tripnumber = $('#etripNumberInput').val();
+    const tripname = $('#etripNameInput').val();
+    const airdraft = $('#eairDraftInput').val();
+    const moblocation = $('#emobLocInput').val();
+    const loadlocation = $('#eloadLocInput').val();
+    const unloadlocation = $('#eunloadLocInput').val();
+    const customer = $('#ecompanyInput').val();
+    const customerfirstname = $('#ecustomerFirstNameInput').val();
+    const customerlastname = $('#ecustomerLastNameInput').val();
+    const customerphone = $('#ecustomerPhoneInput').val();
+    const customeremail = $('#ecustomerEmailInput').val();
+    const barge1 = $('#ebarge1Input').val();
+    const barge2 = $('#ebarge2Input').val();
+    const tug1 = $('#etug1Input').val();
+    const tug2 = $('#etug2Input').val();
+    const tug3 = $('#etug3Input').val();
+    
+
+
+
+        const trip = {
+            id,
             tripnumber,
             tripname,
             airdraft,

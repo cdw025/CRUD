@@ -78,40 +78,42 @@
               <div class="row">
                   <div class="col-4">
                       <div class="form-group">
-                          <label for="tripNumberInput">Trip Number</label>
-                          <input type="text" class="form-control" id="tripNumberInput" placeholder="Trip #" value="<%= trips[i].tripnumber %>">
+                          <label hidden for="eid"></label>
+                          <input hidden type="text" class="form-control" id="eid" placeholder="Trip #" value="<%= trips[i].id %>">
+                          <label for="etripNumberInput">Trip Number</label>
+                          <input type="text" class="form-control" id="etripNumberInput" placeholder="Trip #" value="<%= trips[i].tripnumber %>">
                       </div>
                   </div>
                   <div class="col-4">
                     <div class="form-group">
-                        <label for="tripNameInput">Trip Name</label>
-                        <input type="text" class="form-control" id="tripNameInput" placeholder="Trip Name" value="<%= trips[i].tripname %>">
+                        <label for="etripNameInput">Trip Name</label>
+                        <input type="text" class="form-control" id="etripNameInput" placeholder="Trip Name" value="<%= trips[i].tripname %>">
                     </div>
                 </div>
                     <div class="col-4">
                         <div class="form-group">
-                            <label for="airDraftInput">Air Draft (ft)</label>
-                            <input type="number" class="form-control" id="airDraftInput" placeholder="Air Draft" value="<%= trips[i].airdraft %>">
+                            <label for="eairDraftInput">Air Draft (ft)</label>
+                            <input type="number" class="form-control" id="eairDraftInput" placeholder="Air Draft" value="<%= trips[i].airdraft %>">
                         </div>
                 </div>
             </div>
             <div class="row">
               <div class="col-4">
                   <div class="form-group">
-                      <label for="mobLocInput">Mobilization Location</label>
-                      <input type="text" class="form-control" id="mobLocInput" placeholder="Mobilization Location">
+                      <label for="emobLocInput">Mobilization Location</label>
+                      <input type="text" class="form-control" id="emobLocInput" placeholder="Mobilization Location" value="<%= trips[i].moblocation %>">
                   </div>
               </div>
               <div class="col-4">
                 <div class="form-group">
-                    <label for="loadLocInput">Load Location</label>
-                    <input type="text" class="form-control" id="loadLocInput" placeholder="Load Location">
+                    <label for="eloadLocInput">Load Location</label>
+                    <input type="text" class="form-control" id="eloadLocInput" placeholder="Load Location" value="<%= trips[i].loadlocation %>">
                 </div>
             </div>
                 <div class="col-4">
                     <div class="form-group">
-                        <label for="unloadLocInput">Unload Location</label>
-                        <input type="text" class="form-control" id="unloadLocInput" placeholder="Unload Location">
+                        <label for="eunloadLocInput">Unload Location</label>
+                        <input type="text" class="form-control" id="eunloadLocInput" placeholder="Unload Location" value="<%= trips[i].unloadlocation %>">
                     </div>
             </div>
         </div>
@@ -119,34 +121,34 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
-                            <label for="companyInput">Company Name</label>
-                            <input type="text" class="form-control" id="companyInput" placeholder="Company Name">
+                            <label for="ecompanyInput">Company Name</label>
+                            <input type="text" class="form-control" id="ecompanyInput" placeholder="Company Name" value="<%= trips[i].customer %>">
                         </div>
                     </div>
                     <div class="col-4">
                       <div class="form-group">
-                          <label for="customerFirstNameInput">Customer First Name</label>
-                          <input type="text" class="form-control" id="customerFirstNameInput" placeholder="First Name">
+                          <label for="ecustomerFirstNameInput">Customer First Name</label>
+                          <input type="text" class="form-control" id="ecustomerFirstNameInput" placeholder="First Name" value="<%= trips[i].customerfirstname %>">
                       </div>
                   </div>
                       <div class="col-4">
                           <div class="form-group">
-                              <label for="customerLastNameInput">Customer Last Name</label>
-                              <input type="text" class="form-control" id="customerLastNameInput" placeholder="Last Name">
+                              <label for="ecustomerLastNameInput">Customer Last Name</label>
+                              <input type="text" class="form-control" id="ecustomerLastNameInput" placeholder="Last Name" value="<%= trips[i].customerlastname %>">
                           </div>
                   </div>
               </div>
                   <div class="row">
                       <div class="col-4">
                           <div class="form-group">
-                              <label for="customerPhoneInput">Customer Phone</label>
-                              <input type="text" class="form-control" id="customerPhoneInput" placeholder="000-000-0000">
+                              <label for="ecustomerPhoneInput">Customer Phone</label>
+                              <input type="text" class="form-control" id="ecustomerPhoneInput" placeholder="000-000-0000" value="<%= trips[i].customerphone %>">
                           </div>
                       </div>
                       <div class="col-4">
                           <div class="form-group">
-                              <label for="customerEmailInput">Customer Email</label>
-                              <input type="text" class="form-control" id="customerEmailInput" placeholder="hello@hello.com">
+                              <label for="ecustomerEmailInput">Customer Email</label>
+                              <input type="text" class="form-control" id="ecustomerEmailInput" placeholder="hello@hello.com" value="<%= trips[i].customeremail %>">
                           </div>
                       </div>
                   </div>
@@ -155,34 +157,34 @@
                   <div class="row">
                       <div class="col-4">
                           <div class="form-group">
-                              <label for="barge1Input">Barge Name (1)</label>
-                              <input type="text" class="form-control" id="barge1Input" placeholder="Barge Name">
+                              <label for="ebarge1Input">Barge Name (1)</label>
+                              <input type="text" class="form-control" id="ebarge1Input" placeholder="Barge Name" value="<%= trips[i].barge1 %>">
                           </div>
                       </div>
                       <div class="col-4">
                         <div class="form-group">
-                            <label for="barge2Input">Barge Name (2)</label>
-                            <input type="text" class="form-control" id="barge2Input" placeholder="Barge Name">
+                            <label for="ebarge2Input">Barge Name (2)</label>
+                            <input type="text" class="form-control" id="ebarge2Input" placeholder="Barge Name" value="<%= trips[i].barge2 %>">
                         </div>
                     </div>
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="tug1Input">Tug Name (1)</label>
-                                <input type="text" class="form-control" id="tug1Input" placeholder="Tug Name">
+                                <label for="etug1Input">Tug Name (1)</label>
+                                <input type="text" class="form-control" id="etug1Input" placeholder="Tug Name" value="<%= trips[i].tug1 %>">
                             </div>
                     </div>
                   </div>
                     <div class="row">
                       <div class="col-4">
                           <div class="form-group">
-                              <label for="tug2Input">Tug Name (2)</label>
-                              <input type="text" class="form-control" id="tug2Input" placeholder="Tug Name">
+                              <label for="etug2Input">Tug Name (2)</label>
+                              <input type="text" class="form-control" id="etug2Input" placeholder="Tug Name" value="<%= trips[i].tug2 %>">
                           </div>
                       </div>
                       <div class="col-4">
                         <div class="form-group">
-                            <label for="tug3Input">Tug Name (3)</label>
-                            <input type="text" class="form-control" id="tug3Input" placeholder="Tug Name">
+                            <label for="etug3Input">Tug Name (3)</label>
+                            <input type="text" class="form-control" id="etug3Input" placeholder="Tug Name" value="<%= trips[i].tug3 %>">
                         </div>
                     </div>
                 </div>

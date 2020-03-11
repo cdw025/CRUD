@@ -1,7 +1,7 @@
 $(() => {
     $('#newtripform').submit((event) => {
         event.preventDefault();
-        const trip = getTripFromForm();
+        const trip = getNewTripFromForm();
         console.log(trip);
         
         createTrip(trip)
@@ -40,11 +40,11 @@ function createTrip(trip) {
 $(() => {
     $('#edittripform').submit((event) => {
         event.preventDefault();
-        const trip = getTripFromForm();
-        const tripID = trip.id;
-        console.log(tripID);
+        const trip = getEditTripFromForm();
+        
         editTrip(trip)
         .then(result => {
+            console.log(result);
             window.location = `dashboard`;
         }).catch(error => {
             console.error(error);
@@ -54,5 +54,5 @@ $(() => {
     });
 
     function editTrip(trip) {
-        return $.get(`${AUTH_URL}/edittrip`, trip);
+        return $.put(`${AUTH_URL}/dashboard/${trip.id}`, trip);
     }

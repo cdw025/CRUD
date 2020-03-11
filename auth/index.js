@@ -151,80 +151,39 @@ router.post('/newtrip', (req, res, next) => {
                     });
                 } else {
                     // existing trip
-
                     console.log('trip already exists');
-                //     const trip = {
-                //         tripnumber: req.body.tripnumber,
-                //         barge1: req.body.barge1,
-                //         barge2: req.body.barge2,
-                //         tug1: req.body.tug1,
-                //         tug2: req.body.tug2,
-                //         tug3: req.body.tug3,
-                //         airdraft: req.body.airdraft,
-                //         tripname: req.body.tripname,
-                //         moblocation: req.body.moblocation,
-                //         loadlocation: req.body.loadlocation,
-                //         unloadlocation: req.body.unloadlocation,
-                //         customer: req.body.customer,
-                //         customerfirstname: req.body.customerfirstname,
-                //         customerlastname: req.body.customerlastname,
-                //         customerphone: req.body.customerphone,
-                //         customeremail: req.body.customeremail
-                //     };
-                //     Trip
-                //     .edit(trip)
-                //     .then(id => {
-                // // redirect
-                // res.json({
-                //     id,
-                //     message: 'trip edited'
-                // });
-                //     });
-
                 }
             });
         }
     });
 
-function validateTripInsertUpdate(req, res, callback) {
+router.put('/dashboard/:id', (req, res, next) => {
     if(validTrip(req.body)) {
-        const trip = {
-                    tripnumber: req.body.tripnumber,
-                    barge1: req.body.barge1,
-                    barge2: req.body.barge2,
-                    tug1: req.body.tug1,
-                    tug2: req.body.tug2,
-                    tug3: req.body.tug3,
-                    airdraft: req.body.airdraft,
-                    tripname: req.body.tripname,
-                    moblocation: req.body.moblocation,
-                    loadlocation: req.body.loadlocation,
-                    unloadlocation: req.body.unloadlocation,
-                    customer: req.body.customer,
-                    customerfirstname: req.body.customerfirstname,
-                    customerlastname: req.body.customerlastname,
-                    customerphone: req.body.customerphone,
-                    customeremail: req.body.customeremail
-                };
-
-        callback(trip);
-    } else {
-        res.status(500);
-        res.send('invalid trip')
-    }
-}
-
-router.put('/edittrip/:id', (req, res) => {
-    validateTripInsertUpdate(req, res, (trip) => {
-
-        knex('trips')
-        .where('id', req.params.id)
-        .update(trip, 'id')
-        .then(() => {
-            res.redirect('dashboard');
+        Trip
+        .update(req.params.id, req.body).then(trip => {
+            res.json(trip);
         });
+        } else {
+            next(new Error('invalid trip'));
+        }
     });
-});
+
+        router.get('/dashboard/:id', (req, res) => {
+            if (!isNaN(req.params.id)) {
+                Trip.getOneByTripId(req.params.id).then(trip => {
+                if (trip) {
+                    res.json(trip);
+                } else {
+                    res.status(404);
+                    res.send('trip not found');
+                }
+                });
+            } else {
+                res.status(500);
+                res.send('invalid ID');
+            }
+            });
+    
 
 
 module.exports = router;
