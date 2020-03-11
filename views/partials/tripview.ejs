@@ -36,7 +36,7 @@
 </style>
 
  <div class="table-responsive">
-  <table class="table">
+  <table class="table table-hover table-sm">
     <thead>
       <tr>
         <th scope="col">Trip</th>
@@ -81,7 +81,7 @@
                           <label hidden for="eid"></label>
                           <input hidden type="text" class="form-control" id="eid" placeholder="Trip #" value="<%= trips[i].id %>">
                           <label for="etripNumberInput">Trip Number</label>
-                          <input type="text" class="form-control" id="etripNumberInput" placeholder="Trip #" value="<%= trips[i].tripnumber %>">
+                          <input type="text" class="form-control" id="etripNumberInput" placeholder="Trip #" value="<%= trips[i].tripnumber %>" readonly>
                       </div>
                   </div>
                   <div class="col-4">

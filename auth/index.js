@@ -164,7 +164,7 @@ router.put('/dashboard/:id', (req, res, next) => {
             res.json(trip);
         });
         } else {
-            next(new Error('invalid trip'));
+            next(new Error('invalid trip neal'));
         }
     });
 
