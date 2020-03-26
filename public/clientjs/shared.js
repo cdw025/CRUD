@@ -45,10 +45,7 @@ function getHostURL() {
     const tug2 = $('#tug2Input').val();
     const tug3 = $('#tug3Input').val();
     
-
-
-
-        const trip = {
+ const trip = {
             tripnumber,
             tripname,
             airdraft,
@@ -70,27 +67,24 @@ function getHostURL() {
         return trip;
   }
 
-  function getEditTripFromForm() {
-    const id = $('#eid').val();
-    const tripnumber = $('#etripNumberInput').val();
-    const tripname = $('#etripNameInput').val();
-    const airdraft = $('#eairDraftInput').val();
-    const moblocation = $('#emobLocInput').val();
-    const loadlocation = $('#eloadLocInput').val();
-    const unloadlocation = $('#eunloadLocInput').val();
-    const customer = $('#ecompanyInput').val();
-    const customerfirstname = $('#ecustomerFirstNameInput').val();
-    const customerlastname = $('#ecustomerLastNameInput').val();
-    const customerphone = $('#ecustomerPhoneInput').val();
-    const customeremail = $('#ecustomerEmailInput').val();
-    const barge1 = $('#ebarge1Input').val();
-    const barge2 = $('#ebarge2Input').val();
-    const tug1 = $('#etug1Input').val();
-    const tug2 = $('#etug2Input').val();
-    const tug3 = $('#etug3Input').val();
-    
-
-
+  function getEditTripFromForm(form) {
+    const id = form.find('input[id=eid]').val();
+    const tripnumber = form.find('input[id=etripNumberInput]').val();
+    const tripname = form.find('input[id=etripNameInput]').val();
+    const airdraft = form.find('input[id=eairDraftInput]').val();
+    const moblocation = form.find('input[id=emobLocInput]').val();
+    const loadlocation = form.find('input[id=eloadLocInput]').val();
+    const unloadlocation = form.find('input[id=eunloadLocInput]').val();
+    const customer = form.find('input[id=ecompanyInput]').val();
+    const customerfirstname = form.find('input[id=ecustomerFirstNameInput]').val();
+    const customerlastname = form.find('input[id=ecustomerLastNameInput]').val();
+    const customerphone = form.find('input[id=ecustomerPhoneInput]').val();
+    const customeremail = form.find('input[id=ecustomerEmailInput]').val();
+    const barge1 = form.find('input[id=ebarge1Input]').val();
+    const barge2 = form.find('input[id=ebarge2Input]').val();
+    const tug1 = form.find('input[id=etug1Input]').val();
+    const tug2 = form.find('input[id=etug2Input]').val();
+    const tug3 = form.find('input[id=etug3Input]').val();
 
         const trip = {
             id,
@@ -111,13 +105,6 @@ function getHostURL() {
             tug2,
             tug3
         };
-
         return trip;
-  }
-
-  // function logout() {
-  //   localStorage.removeItem('user_id');
-  //   $.get()
-
-  // }
+    }
   

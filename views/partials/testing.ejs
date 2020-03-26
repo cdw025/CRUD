@@ -1,0 +1,89 @@
+<style>
+    tr.hide-table-padding td {
+    padding: 0;
+  }
+  
+  .expand-button {
+      position: relative;
+  }
+  
+  .accordion-toggle .expand-button:after
+  {
+    position: absolute;
+    left:.75rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    content: '-';
+  }
+  .accordion-toggle.collapsed .expand-button:after
+  {
+    content: '+';
+  }
+  
+  #tdcard {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #cardtitle {
+    margin-bottom: 0px;
+  }
+  
+  .table-responsive {
+    margin-top: 10px;
+  }
+  
+  </style>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Trip</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Status</th>
+                <th scope="col">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i = 0; i < trips.length; i++) { %>
+                <tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#<%= trips[i].tripnumber %>">
+                    <td><%= trips[i].tripnumber %></td>
+                    <td><%= trips[i].customer %></td>
+                    <td><%= trips[i].status %></td>
+                    <td class="expand-button"></td>
+                </tr>
+                <tr class="hide-table-padding">
+                    <td colspan="4">
+                        <div id="<%= trips[i].tripnumber %>" class="collapse in col-sm head-div">
+                            <div class="card" id="tdcard">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <h5 class="card-title col align-self-center" id="cardtitle"><%= trips[i].customer %> - <%= trips[i].tripnumber %></h5>
+                                        <button type="button" class="btn col-1" id="edittripbutton" data-toggle="modal" data-target="#e<%= trips[i].tripnumber %>">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <div class="modal fade" id="e<%= trips[i].tripnumber %>" tabindex="-1" role="dialog" aria-labelledby="editTripModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editTripModalLabel">Edit Trip Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                            </div>
+                            <div class="modal-body">
+                                HellO!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <% } %>
+        </tbody>
+    </table>
+</div>

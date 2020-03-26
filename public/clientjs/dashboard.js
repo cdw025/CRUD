@@ -37,22 +37,21 @@ function createTrip(trip) {
     return $.post(`${AUTH_URL}/newtrip`, trip);
 }
 
-$(() => {
-    $('#edittripform').submit((event) => {
-        event.preventDefault();
-        const trip = getEditTripFromForm();
-        
-        editTrip(trip)
-        .then(result => {
-            console.log(result);
-            window.location = `dashboard`;
-        }).catch(error => {
-            console.error(error);
-            showErrorMessage(error.responseJSON.message);
-        });
-        });
-    });
 
+$(document).delegate('.edittripform', 'submit', function(event) {
+    event.preventDefault();
+    var form = $(this);
+    const trip = getEditTripFromForm(form);
+    console.log(trip);
+    editTrip(trip)
+    .then(result => {
+        console.log(result);
+        window.location = `dashboard`;
+    }).catch(error => {
+        console.error(error);
+        showErrorMessage(error.responseJSON.message);
+    });
+});
     function editTrip(trip) {
         return $.put(`${AUTH_URL}/dashboard/${trip.id}`, trip);
     }
