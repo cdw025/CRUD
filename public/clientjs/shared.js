@@ -106,5 +106,20 @@ function getHostURL() {
             tug3
         };
         return trip;
+<<<<<<< HEAD
     }
   
+=======
+  }
+
+  function getDelTripForm() {
+    const id = $('#did').val();
+    const tripnumber = $('#dtripNumberInput').val();
+        const trip = {
+            id,
+            tripnumber
+        };
+
+        return trip;
+  }
+>>>>>>> 2df31544ce73e076b57199c54ab1c2b6cd37aea9

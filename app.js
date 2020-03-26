@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override')
 const ejsLint = require('ejs-lint');
 var index = require('./routes/index');
 var user = require('./routes/user');
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('process.env.COOKIE_SECRET'));
 app.use(express.static('public'));
 app.use(express.static('public/clientjs'));
+app.use(methodOverride('_method'))
 
 
 app.use('/auth', auth);
